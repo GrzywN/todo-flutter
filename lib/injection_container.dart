@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:todo_list/features/todo/data/data_sources/local/app_database.dart';
 import 'package:todo_list/features/todo/data/repository/todo_repository_impl.dart';
 import 'package:todo_list/features/todo/domain/repository/todo_repository.dart';
 import 'package:todo_list/features/todo/domain/usecases/add_todo.dart';
@@ -12,6 +13,8 @@ final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
   // Dependencies
+  final database = await initDatabase();
+  sl.registerSingleton<AppDatabase>(database);
   sl.registerSingleton<TodoRepository>(TodoRepositoryImpl(sl()));
 
   // Use cases

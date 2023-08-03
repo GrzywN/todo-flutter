@@ -10,3 +10,5 @@ part 'app_database.g.dart';
 abstract class AppDatabase extends FloorDatabase {
   TodoDao get todoDAO;
 }
+
+final initDatabase = $FloorAppDatabase.databaseBuilder('app_database.db').build;
