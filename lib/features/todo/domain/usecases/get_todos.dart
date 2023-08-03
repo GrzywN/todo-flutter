@@ -8,7 +8,7 @@ class GetTodosUseCase implements UseCase<List<TodoEntity>, void> {
   GetTodosUseCase(this._todoRepository);
 
   @override
-  Future<List<TodoEntity>> execute({void params}) {
+  Future<List<TodoEntity>> call({void params}) {
     return _todoRepository.getTodos();
   }
 }

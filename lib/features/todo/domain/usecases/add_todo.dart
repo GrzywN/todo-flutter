@@ -8,7 +8,7 @@ class AddTodoUseCase implements UseCase<void, TodoEntity> {
   AddTodoUseCase(this._todoRepository);
 
   @override
-  Future<void> execute({TodoEntity? params}) {
+  Future<void> call({TodoEntity? params}) {
     return _todoRepository.addTodo(params!);
   }
 }

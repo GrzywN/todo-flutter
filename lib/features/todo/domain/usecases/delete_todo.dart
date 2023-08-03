@@ -8,7 +8,7 @@ class DeleteTodoUseCase implements UseCase<void, TodoEntity> {
   DeleteTodoUseCase(this._todoRepository);
 
   @override
-  Future<void> execute({TodoEntity? params}) {
+  Future<void> call({TodoEntity? params}) {
     return _todoRepository.deleteTodo(params!);
   }
 }

@@ -8,7 +8,7 @@ class CompleteTodoUseCase implements UseCase<void, TodoEntity> {
   CompleteTodoUseCase(this._todoRepository);
 
   @override
-  Future<void> execute({TodoEntity? params}) {
+  Future<void> call({TodoEntity? params}) {
     return _todoRepository.completeTodo(params!);
   }
 }
