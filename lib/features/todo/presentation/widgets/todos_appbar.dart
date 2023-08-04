@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:todo_list/common.dart';
 import 'package:todo_list/common/ui/tokens/sizes.dart';
 import 'package:todo_list/common/ui/tokens/spacing.dart';
 
@@ -11,7 +11,7 @@ class TodosAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Todos'),
+      title: Text(AppLocalizations.of(context)!.homeAppbarTitle),
       actions: [
         Container(
           width: Sizes.appbarIconButtonSize,

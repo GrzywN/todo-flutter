@@ -1,0 +1,14 @@
+{
+  "homeAppbarTitle": "Todos",
+  "@homeAppbarTitle": {
+    "description": "An app name"
+  },
+  "createTodoButton": "Create new todo",
+  "@createTodoButton": {
+    "description": "Text on the button, which creates a new todo."
+  },
+  "noTodosAreLoaded": "There are no todos yet!",
+  "@noTodosAreLoaded": {
+    "description": "Text on the home page that informs the user of an empty to-do list."
+  }
+}

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:todo_list/common.dart';
 
 class CreateTodoButton extends StatelessWidget {
   const CreateTodoButton({Key? key}) : super(key: key);
@@ -6,7 +6,7 @@ class CreateTodoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      tooltip: 'Create new todo',
+      tooltip: AppLocalizations.of(context)!.createTodoButton,
       onPressed: () {},
       child: const Icon(Icons.add),
     );

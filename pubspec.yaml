@@ -10,6 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # i18n
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.18.0
+
   # Icons
   cupertino_icons: 1.0.5
 
@@ -80,3 +85,4 @@ flutter:
           weight: 900
 
   uses-material-design: true
+  generate: true
