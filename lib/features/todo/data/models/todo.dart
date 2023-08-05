@@ -4,11 +4,16 @@ import 'package:todo_list/features/todo/domain/entities/todo.dart';
 @Entity(tableName: 'Todos', primaryKeys: ['id'])
 class TodoModel extends TodoEntity {
   const TodoModel({
-    int? id,
+    @PrimaryKey(autoGenerate: true) int? id,
     String? title,
     String? description,
-    bool? isCompleted,
-  }) : super(id: 0, title: '', description: '', isCompleted: false);
+    @ColumnInfo(name: 'is_completed') bool? isCompleted,
+  }) : super(
+          id: id,
+          title: title,
+          description: description,
+          isCompleted: isCompleted ?? false,
+        );
 
   factory TodoModel.fromEntity(TodoEntity entity) {
     return TodoModel(
@@ -27,8 +32,7 @@ class CompletedTodoModel extends TodoModel {
     int? id,
     String? title,
     String? description,
-    bool? isCompleted,
-  }) : super(id: 0, title: '', description: '', isCompleted: true);
+  }) : super(id: id, title: title, description: description, isCompleted: true);
 
   @override
   factory CompletedTodoModel.fromEntity(TodoEntity entity) {
@@ -36,7 +40,6 @@ class CompletedTodoModel extends TodoModel {
       id: entity.id,
       title: entity.title,
       description: entity.description,
-      isCompleted: true,
     );
   }
 }

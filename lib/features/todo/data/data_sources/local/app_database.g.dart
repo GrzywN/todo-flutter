@@ -85,7 +85,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Todos` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `isCompleted` INTEGER NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `Todos` (`id` INTEGER, `title` TEXT, `description` TEXT, `isCompleted` INTEGER, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -111,7 +111,9 @@ class _$TodoDao extends TodoDao {
                   'id': item.id,
                   'title': item.title,
                   'description': item.description,
-                  'isCompleted': item.isCompleted ? 1 : 0
+                  'isCompleted': item.isCompleted == null
+                      ? null
+                      : (item.isCompleted! ? 1 : 0)
                 }),
         _todoModelUpdateAdapter = UpdateAdapter(
             database,
@@ -121,7 +123,9 @@ class _$TodoDao extends TodoDao {
                   'id': item.id,
                   'title': item.title,
                   'description': item.description,
-                  'isCompleted': item.isCompleted ? 1 : 0
+                  'isCompleted': item.isCompleted == null
+                      ? null
+                      : (item.isCompleted! ? 1 : 0)
                 }),
         _todoModelDeletionAdapter = DeletionAdapter(
             database,
@@ -131,7 +135,9 @@ class _$TodoDao extends TodoDao {
                   'id': item.id,
                   'title': item.title,
                   'description': item.description,
-                  'isCompleted': item.isCompleted ? 1 : 0
+                  'isCompleted': item.isCompleted == null
+                      ? null
+                      : (item.isCompleted! ? 1 : 0)
                 });
 
   final sqflite.DatabaseExecutor database;
