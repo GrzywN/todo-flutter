@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_list/common.dart';
+import 'package:todo_list/common/ui/tokens/sizes.dart';
+import 'package:todo_list/common/ui/tokens/spacing.dart';
 import 'package:todo_list/common/ui/tokens/typography.dart';
 import 'package:todo_list/features/todo/domain/entities/todo.dart';
 import 'package:todo_list/features/todo/presentation/bloc/local/local_todo_bloc.dart';
@@ -49,7 +51,7 @@ class _NewTodoState extends State<NewTodo> {
           alignment: WrapAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(SpacingToken.newTodoFormPadding),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -84,15 +86,20 @@ class _NewTodoState extends State<NewTodo> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
-              child: FloatingActionButton(
-                tooltip: AppLocalizations.of(context)!.createTodoButton,
-                onPressed: () {
-                  _onCreateTodo(context);
-                  Navigator.pop(context);
-                },
-                child: const Icon(Icons.send_rounded),
+              padding: const EdgeInsets.all(
+                SpacingToken.newTodoFloatingButtonPadding,
               ),
+              child: SizedBox(
+                  height: SizesToken.newTodoIconButtonSize,
+                  width: SizesToken.newTodoIconButtonSize,
+                  child: FloatingActionButton(
+                    tooltip: AppLocalizations.of(context)!.createTodoButton,
+                    onPressed: () {
+                      _onCreateTodo(context);
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(Icons.send_rounded),
+                  )),
             )
           ],
         );
