@@ -18,21 +18,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LocalTodoBloc>(
-        create: (context) => sl()..add(const GetTodos()),
-        child: MaterialApp(
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            AppLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('en', ''),
-            Locale('pl', ''),
-          ],
-          debugShowCheckedModeBanner: false,
-          theme: theme(),
-          home: const TodoScreen(),
-        ));
+      create: (context) => sl()..add(const GetTodos()),
+      child: MaterialApp(
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          AppLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', ''),
+          Locale('pl', ''),
+        ],
+        debugShowCheckedModeBanner: false,
+        theme: theme(),
+        home: const TodoScreen(),
+      ),
+    );
   }
 }
