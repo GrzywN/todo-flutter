@@ -10,5 +10,13 @@
   "noTodosAreLoaded": "There are no todos yet!",
   "@noTodosAreLoaded": {
     "description": "Text on the home page that informs the user of an empty to-do list."
+  },
+  "newTodoTitle": "Task name",
+  "@newTodoTitle": {
+    "description": "Text appearing on the screen for creating a new todo. It is a placeholder for the task title being entered."
+  },
+  "newTodoDescription": "Description",
+  "@newTodoDescription": {
+    "description": "Text appearing on the screen for creating a new todo. It is a placeholder for the task description being entered."
   }
 }
