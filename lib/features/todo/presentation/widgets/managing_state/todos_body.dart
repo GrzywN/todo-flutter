@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_list/features/todo/presentation/widgets/loaded_todos.dart';
-import 'package:todo_list/features/todo/presentation/widgets/no_todos_are_loaded.dart';
-import 'package:todo_list/features/todo/presentation/widgets/todos_are_loading.dart';
+import 'package:todo_list/features/todo/presentation/widgets/managing_state/loaded_todos.dart';
+import 'package:todo_list/features/todo/presentation/widgets/managing_state/no_todos_are_loaded.dart';
+import 'package:todo_list/features/todo/presentation/widgets/managing_state/todos_are_loading.dart';
 import 'package:todo_list/features/todo/presentation/bloc/local/local_todo_bloc.dart';
 
 class TodosBody extends StatelessWidget {
