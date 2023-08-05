@@ -11,7 +11,7 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.screenHorizontalPadding,
+        horizontal: SpacingToken.screenHorizontalPadding,
       ),
       itemBuilder: (context, idx) {
         return ListTile(

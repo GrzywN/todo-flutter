@@ -1,1 +1,1 @@
-class Colors {}
+class ColorsToken {}

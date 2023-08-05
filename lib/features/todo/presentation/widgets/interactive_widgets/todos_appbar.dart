@@ -6,7 +6,7 @@ class TodosAppbar extends StatelessWidget implements PreferredSizeWidget {
   const TodosAppbar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(Sizes.appbarHeight);
+  Size get preferredSize => const Size.fromHeight(SizesToken.appbarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,11 @@ class TodosAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(AppLocalizations.of(context)!.homeAppbarTitle),
       actions: [
         Container(
-          width: Sizes.appbarIconButtonSize,
-          height: Sizes.appbarIconButtonSize,
+          width: SizesToken.appbarIconButtonSize,
+          height: SizesToken.appbarIconButtonSize,
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(right: Spacing.screenHorizontalPadding),
+          margin: const EdgeInsets.only(
+              right: SpacingToken.screenHorizontalPadding),
           child: const Icon(Icons.more_vert),
         )
       ],

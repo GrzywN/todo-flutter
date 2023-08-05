@@ -1,1 +1,1 @@
-class Shadows {}
+class ShadowsToken {}
