@@ -46,63 +46,68 @@ class _NewTodoState extends State<NewTodo> {
       constraints: BoxConstraints(
         maxWidth: MediaQuery.of(context).size.width,
       ),
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return Wrap(
-          alignment: WrapAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(SpacingToken.newTodoFormPadding),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  TextField(
-                    maxLines: null,
-                    controller: _titleController,
-                    style: TextStyle(
-                      fontSize: TypographyToken.fontSizes[FontSizes.base],
-                      height: TypographyToken.heights[FontSizes.base],
-                      fontWeight: TypographyToken.weights[Weights.medium],
-                    ),
-                    decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.newTodoTitle,
-                      border: InputBorder.none,
-                    ),
+        return Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewPadding.bottom),
+            child: Wrap(
+              alignment: WrapAlignment.end,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.all(SpacingToken.newTodoFormPadding),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      TextField(
+                        maxLines: null,
+                        controller: _titleController,
+                        style: TextStyle(
+                          fontSize: TypographyToken.fontSizes[FontSizes.base],
+                          height: TypographyToken.heights[FontSizes.base],
+                          fontWeight: TypographyToken.weights[Weights.medium],
+                        ),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.newTodoTitle,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                      TextField(
+                        maxLines: null,
+                        controller: _descriptionController,
+                        style: TextStyle(
+                          fontSize: TypographyToken.fontSizes[FontSizes.small],
+                          height: TypographyToken.heights[FontSizes.small],
+                          fontWeight: TypographyToken.weights[Weights.regular],
+                        ),
+                        decoration: InputDecoration(
+                          hintText:
+                              AppLocalizations.of(context)!.newTodoDescription,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ],
                   ),
-                  TextField(
-                    maxLines: null,
-                    controller: _descriptionController,
-                    style: TextStyle(
-                      fontSize: TypographyToken.fontSizes[FontSizes.small],
-                      height: TypographyToken.heights[FontSizes.small],
-                      fontWeight: TypographyToken.weights[Weights.regular],
-                    ),
-                    decoration: InputDecoration(
-                      hintText:
-                          AppLocalizations.of(context)!.newTodoDescription,
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(
-                SpacingToken.newTodoFloatingButtonPadding,
-              ),
-              child: SizedBox(
-                  height: SizesToken.newTodoIconButtonSize,
-                  width: SizesToken.newTodoIconButtonSize,
-                  child: FloatingActionButton(
-                    tooltip: AppLocalizations.of(context)!.createTodoButton,
-                    onPressed: () {
-                      _onCreateTodo(context);
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.send_rounded),
-                  )),
-            )
-          ],
-        );
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      right: SpacingToken.newTodoFloatingButtonPadding,
+                      bottom: MediaQuery.of(context).viewInsets.bottom + SpacingToken.newTodoFloatingButtonPadding),
+                  child: SizedBox(
+                      height: SizesToken.newTodoIconButtonSize,
+                      width: SizesToken.newTodoIconButtonSize,
+                      child: FloatingActionButton(
+                        tooltip: AppLocalizations.of(context)!.createTodoButton,
+                        onPressed: () {
+                          _onCreateTodo(context);
+                          Navigator.pop(context);
+                        },
+                        child: const Icon(Icons.send_rounded),
+                      )),
+                )
+              ],
+            ));
       },
     );
   }
