@@ -30,26 +30,26 @@ class TodoList extends StatelessWidget {
               fontSize: TypographyToken.fontSizes[FontSizes.large],
               height: TypographyToken.heights[FontSizes.large],
               fontWeight: TypographyToken.weights[Weights.medium],
-              decoration: state.todos![idx].isCompleted ?? false
+              decoration: _getIsCompletedFromState(state, idx)
                   ? TextDecoration.lineThrough
                   : null,
               decorationColor: const Color.fromRGBO(0, 0, 0, 0.25),
-              color: state.todos![idx].isCompleted ?? false
+              color: _getIsCompletedFromState(state, idx)
                   ? const Color.fromRGBO(0, 0, 0, 0.25)
                   : null,
             ),
           ),
           subtitle: Text(
-            _getDescriptionFromState(state, idx) ?? "Lorem ipsum",
+            _getDescriptionFromState(state, idx),
             style: TextStyle(
               fontSize: TypographyToken.fontSizes[FontSizes.base],
               height: TypographyToken.heights[FontSizes.base],
               fontWeight: TypographyToken.weights[Weights.regular],
-              decoration: state.todos![idx].isCompleted ?? false
+              decoration: _getIsCompletedFromState(state, idx)
                   ? TextDecoration.lineThrough
                   : null,
               decorationColor: const Color.fromRGBO(0, 0, 0, 0.25),
-              color: state.todos![idx].isCompleted ?? false
+              color: _getIsCompletedFromState(state, idx)
                   ? const Color.fromRGBO(0, 0, 0, 0.25)
                   : null,
             ),
@@ -61,19 +61,19 @@ class TodoList extends StatelessWidget {
     );
   }
 
-  String? _getTitleFromState(LocalTodoState state, int idx) {
-    return state.todos![idx].title;
+  String _getTitleFromState(LocalTodoState state, int idx) {
+    return state.todos![idx].title ?? "";
   }
 
-  String? _getDescriptionFromState(LocalTodoState state, int idx) {
-    return state.todos![idx].description;
+  String _getDescriptionFromState(LocalTodoState state, int idx) {
+    return state.todos![idx].description ?? "";
   }
 
-  bool? _getIsCompletedFromState(LocalTodoState state, int idx) {
-    return state.todos![idx].isCompleted;
+  bool _getIsCompletedFromState(LocalTodoState state, int idx) {
+    return state.todos![idx].isCompleted ?? false;
   }
 
-  int? _getTodoLengthFromState(LocalTodoState state) {
+  int _getTodoLengthFromState(LocalTodoState state) {
     return state.todos!.length;
   }
 }
