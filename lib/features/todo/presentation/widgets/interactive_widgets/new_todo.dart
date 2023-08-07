@@ -69,7 +69,7 @@ class _NewTodoState extends State<NewTodo> {
                           fontWeight: TypographyToken.weights[Weights.medium],
                         ),
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.newTodoTitle,
+                          hintText: AppLocalizations.of(context)!.todoTitle,
                           border: InputBorder.none,
                         ),
                       ),
@@ -83,7 +83,7 @@ class _NewTodoState extends State<NewTodo> {
                         ),
                         decoration: InputDecoration(
                           hintText:
-                              AppLocalizations.of(context)!.newTodoDescription,
+                              AppLocalizations.of(context)!.todoDescription,
                           border: InputBorder.none,
                         ),
                       ),

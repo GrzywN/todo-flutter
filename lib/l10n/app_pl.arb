@@ -2,6 +2,9 @@
   "homeAppbarTitle": "Todo lista",
   "createTodoButton": "Stwórz nowe zadanie",
   "noTodosAreLoaded": "Nie masz obecnie żadnych zadań!",
-  "newTodoTitle": "Nazwa zadania",
-  "newTodoDescription": "Opis"
+  "todoTitle": "Nazwa zadania",
+  "todoDescription": "Opis",
+  "editTodo": "Edytuj zadanie",
+  "save": "Zapisz",
+  "cancel": "Anuluj"
 }

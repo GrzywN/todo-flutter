@@ -11,12 +11,24 @@
   "@noTodosAreLoaded": {
     "description": "Text on the home page that informs the user of an empty to-do list."
   },
-  "newTodoTitle": "Task name",
-  "@newTodoTitle": {
-    "description": "Text appearing on the screen for creating a new todo. It is a placeholder for the task title being entered."
+  "todoTitle": "Task name",
+  "@todoTitle": {
+    "description": "Generic text for task name. Used across many widgets which make operations on todos."
   },
-  "newTodoDescription": "Description",
-  "@newTodoDescription": {
-    "description": "Text appearing on the screen for creating a new todo. It is a placeholder for the task description being entered."
+  "todoDescription": "Description",
+  "@todoDescription": {
+    "description": "Generic text for task description. Used across many widgets which make operations on todos."
+  },
+  "editTodo": "Edit",
+  "@editTodo": {
+    "description": "Title of edit dialog."
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Generic text for saving an operation. Used across many widgets which make operations on todos."
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Generic text for canceling an operation. Used across many widgets which make operations on todos."
   }
 }
