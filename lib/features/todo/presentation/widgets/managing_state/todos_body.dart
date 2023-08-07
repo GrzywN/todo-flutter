@@ -20,7 +20,7 @@ class TodosBody extends StatelessWidget {
       }
 
       if (state is LocalTodoDone) {
-        return LoadedTodosList(state: state);
+        return LoadedTodos(state: state);
       }
 
       return const SizedBox();
