@@ -19,7 +19,7 @@ class TodosAppbar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.center,
           margin: const EdgeInsets.only(
               right: SpacingToken.screenHorizontalPadding),
-          child: const Icon(Icons.more_vert),
+          // child: const Icon(Icons.more_vert),
         )
       ],
     );
