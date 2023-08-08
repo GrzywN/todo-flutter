@@ -43,6 +43,8 @@ class DismissibleTodo extends StatelessWidget {
   }
 
   _onEdit(BuildContext context, TodoEntity todo) async {
+    if (!context.mounted) return;
+
     final updatedTodo = await showEditDialog(context, todo);
 
     if (updatedTodo != null) {
@@ -56,7 +58,8 @@ class DismissibleTodo extends StatelessWidget {
     localTodoBloc.add(DeleteTodo(todo));
   }
 
-  Future<TodoEntity?> showEditDialog(BuildContext context, TodoEntity todo) async {
+  Future<TodoEntity?> showEditDialog(
+      BuildContext context, TodoEntity todo) async {
     final TextEditingController titleController = TextEditingController();
     final TextEditingController descriptionController = TextEditingController();
 
@@ -73,11 +76,13 @@ class DismissibleTodo extends StatelessWidget {
             children: [
               TextField(
                 controller: titleController,
-                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.todoTitle),
+                decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.todoTitle),
               ),
               TextField(
                 controller: descriptionController,
-                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.todoDescription),
+                decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.todoDescription),
               ),
             ],
           ),
@@ -91,13 +96,25 @@ class DismissibleTodo extends StatelessWidget {
             TextButton(
               child: Text(AppLocalizations.of(context)!.save),
               onPressed: () {
-                final updatedTodo = TodoEntity(
-                  id: todo.id,
-                  title: titleController.text,
-                  description: descriptionController.text,
-                  isCompleted: todo.isCompleted,
-                );
-                Navigator.of(context).pop(updatedTodo);
+                final updatedTitle = titleController.text.trim();
+                final updatedDescription = descriptionController.text.trim();
+
+                if (updatedTitle.isNotEmpty) {
+                  final updatedTodo = TodoEntity(
+                    id: todo.id,
+                    title: updatedTitle,
+                    description: updatedDescription,
+                    isCompleted: todo.isCompleted,
+                  );
+                  Navigator.of(context).pop(updatedTodo);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                          AppLocalizations.of(context)!.emptyTodoNameMessage),
+                    ),
+                  );
+                }
               },
             ),
           ],

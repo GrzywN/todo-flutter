@@ -6,5 +6,6 @@
   "todoDescription": "Opis",
   "editTodo": "Edytuj zadanie",
   "save": "Zapisz",
-  "cancel": "Anuluj"
+  "cancel": "Anuluj",
+  "emptyTodoNameMessage": "Nazwa zadania nie może być pusta."
 }

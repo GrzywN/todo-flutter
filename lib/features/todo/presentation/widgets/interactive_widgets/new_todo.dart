@@ -93,7 +93,8 @@ class _NewTodoState extends State<NewTodo> {
                 Padding(
                   padding: EdgeInsets.only(
                       right: SpacingToken.newTodoFloatingButtonPadding,
-                      bottom: MediaQuery.of(context).viewInsets.bottom + SpacingToken.newTodoFloatingButtonPadding),
+                      bottom: MediaQuery.of(context).viewInsets.bottom +
+                          SpacingToken.newTodoFloatingButtonPadding),
                   child: SizedBox(
                       height: SizesToken.newTodoIconButtonSize,
                       width: SizesToken.newTodoIconButtonSize,
@@ -114,14 +115,29 @@ class _NewTodoState extends State<NewTodo> {
 
   void _onCreateTodo(BuildContext context) {
     final localTodoBloc = BlocProvider.of<LocalTodoBloc>(context);
-    final newTodo = TodoEntity(
-      title: _titleController.text,
-      description: _descriptionController.text,
-    );
 
-    localTodoBloc.add(AddTodo(newTodo));
+    final title = _titleController.text.trim();
+    final description = _descriptionController.text.trim();
 
-    _titleController.clear();
-    _descriptionController.clear();
+    if (title.isNotEmpty) {
+      final newTodo = TodoEntity(
+        title: title,
+        description: description,
+      );
+
+      localTodoBloc.add(AddTodo(newTodo));
+
+      _titleController.clear();
+      _descriptionController.clear();
+
+      Navigator.maybePop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.emptyTodoNameMessage),
+          showCloseIcon: true,
+        ),
+      );
+    }
   }
 }
