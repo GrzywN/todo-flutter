@@ -3,7 +3,17 @@ import 'package:todo_list/common/ui/tokens/typography.dart';
 
 ThemeData theme() {
   return ThemeData(
-    primarySwatch: Colors.indigo,
+    brightness: Brightness.light,
+    primarySwatch: Colors.orange,
+    useMaterial3: true,
+    fontFamily: TypographyToken.fontFamilySans,
+  );
+}
+
+ThemeData darkTheme() {
+  return ThemeData(
+    brightness: Brightness.dark,
+    primarySwatch: Colors.orange,
     useMaterial3: true,
     fontFamily: TypographyToken.fontFamilySans,
   );

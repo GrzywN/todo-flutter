@@ -9,16 +9,24 @@ class TodoTitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData mode = Theme.of(context);
+
+    final whichMode = mode.brightness;
+    final isUsingDarkMode = whichMode == Brightness.dark;
+    final completedColor = isUsingDarkMode
+        ? const Color.fromRGBO(255, 255, 255, 0.5)
+        : const Color.fromRGBO(0, 0, 0, 0.25);
+
     return Text(
       todo.title ?? "Lorem Ipsum",
       style: TextStyle(
-        fontSize: TypographyToken.fontSizes[FontSizes.large],
-        height: TypographyToken.heights[FontSizes.large],
-        fontWeight: TypographyToken.weights[Weights.medium],
-        decoration: todo.isCompleted ?? false ? TextDecoration.lineThrough : null,
-        decorationColor: const Color.fromRGBO(0, 0, 0, 0.25),
-        color: todo.isCompleted ?? false ? const Color.fromRGBO(0, 0, 0, 0.25) : null,
-      ),
+          fontSize: TypographyToken.fontSizes[FontSizes.large],
+          height: TypographyToken.heights[FontSizes.large],
+          fontWeight: TypographyToken.weights[Weights.medium],
+          decoration:
+              todo.isCompleted ?? false ? TextDecoration.lineThrough : null,
+          decorationColor: completedColor,
+          color: todo.isCompleted ?? false ? completedColor : null),
     );
   }
 }

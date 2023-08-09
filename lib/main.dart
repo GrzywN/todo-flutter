@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
         ],
         debugShowCheckedModeBanner: false,
         theme: theme(),
+        darkTheme: darkTheme(),
         home: const TodoScreen(),
       ),
     );
