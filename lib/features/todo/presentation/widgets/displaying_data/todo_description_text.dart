@@ -38,7 +38,7 @@ class TodoDescriptionText extends StatelessWidget {
   TextStyle _buildTextStyle(BuildContext context) {
     final completedColor = isUsingDarkMode(context)
         ? const Color.fromRGBO(255, 255, 255, 0.5)
-        : const Color.fromRGBO(0, 0, 0, 0.25);
+        : const Color.fromRGBO(0, 0, 0, 0.5);
 
     return TextStyle(
       fontSize: TypographyToken.fontSizes[FontSizes.base],
@@ -53,9 +53,7 @@ class TodoDescriptionText extends StatelessWidget {
 
   TextStyle _buildLinkStyle(BuildContext context) {
     final baseLinkColor = Theme.of(context).colorScheme.primary;
-    final completedLinkColor = isUsingDarkMode(context)
-        ? baseLinkColor.withOpacity(0.5)
-        : baseLinkColor.withOpacity(0.25);
+    final completedLinkColor = baseLinkColor.withOpacity(0.5);
     final linkColor =
         todo.isCompleted ?? false ? completedLinkColor : baseLinkColor;
 
