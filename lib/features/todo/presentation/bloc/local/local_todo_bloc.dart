@@ -29,7 +29,8 @@ class LocalTodoBloc extends Bloc<LocalTodoEvent, LocalTodoState> {
 
   static void _sortByIsCompleted(List<TodoEntity> todos) {
     // TODO: add sorting by other factors like createdAt
-    todos.sort((a, b) => a.isCompleted == b.isCompleted ? 0 : (a.isCompleted ?? false ? 1 : -1));
+    todos.sort((a, b) =>
+        a.isCompleted == b.isCompleted ? 0 : (a.isCompleted ?? false ? 1 : -1));
   }
 
   Future<void> onAddTodo(AddTodo event, Emitter<LocalTodoState> emit) async {
@@ -39,14 +40,16 @@ class LocalTodoBloc extends Bloc<LocalTodoEvent, LocalTodoState> {
     emit(LocalTodoDone(todos));
   }
 
-  Future<void> onCompleteTodo(CompleteTodo event, Emitter<LocalTodoState> emit) async {
+  Future<void> onCompleteTodo(
+      CompleteTodo event, Emitter<LocalTodoState> emit) async {
     await _completeTodoUseCase(params: event.todo);
     final todos = await _getTodosUseCase();
     _sortByIsCompleted(todos);
     emit(LocalTodoDone(todos));
   }
 
-  Future<void> onDeleteTodo(DeleteTodo event, Emitter<LocalTodoState> emit) async {
+  Future<void> onDeleteTodo(
+      DeleteTodo event, Emitter<LocalTodoState> emit) async {
     await _deleteTodoUseCase(params: event.todo);
     final todos = await _getTodosUseCase();
     _sortByIsCompleted(todos);

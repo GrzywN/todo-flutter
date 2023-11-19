@@ -7,5 +7,10 @@
   "editTodo": "Edytuj zadanie",
   "save": "Zapisz",
   "cancel": "Anuluj",
-  "emptyTodoNameMessage": "Nazwa zadania nie może być pusta."
+  "emptyTodoNameMessage": "Nazwa zadania nie może być pusta.",
+  "successMessage": "Sukces!",
+  "warningMessage": "Ostrzeżenie!",
+  "errorMessage": "Błąd!",
+  "infoMessage": "Informacja!",
+  "errorOccurredMessage": "Wystąpił błąd. Spróbuj ponownie później."
 }

@@ -28,6 +28,7 @@ class DismissibleTodo extends StatelessWidget {
         } else {
           _onEdit(context, todo);
         }
+        return null;
       },
       child: CheckboxListTile(
         value: todo.isCompleted,
@@ -36,8 +37,9 @@ class DismissibleTodo extends StatelessWidget {
           localTodoBloc.add(CompleteTodo(todo));
         },
         title: TodoTitleText(todo: todo),
-        subtitle: TodoDescriptionText(todo: todo),
-        checkboxShape: const CircleBorder(),
+        subtitle: todo.description?.isNotEmpty ?? false
+            ? TodoDescriptionText(todo: todo)
+            : null,
       ),
     );
   }

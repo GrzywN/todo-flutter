@@ -34,5 +34,25 @@
   "emptyTodoNameMessage": "Task name cannot be empty.",
   "@emptyTodoNameMessage": {
     "description": "Message shown when user doesn't provide any characters in todo name."
+  },
+  "successMessage": "Success!",
+  "@successMessage": {
+    "description": "Message shown when an operation is successful."
+  },
+  "warningMessage": "Warning!",
+  "@warningMessage": {
+    "description": "Message shown to warn the user about something."
+  },
+  "errorMessage": "Error!",
+  "@errorMessage": {
+    "description": "Message shown when an operation is unsuccessful."
+  },
+  "infoMessage": "Info!",
+  "@infoMessage": {
+    "description": "Message shown to inform the user about something."
+  },
+  "errorOccurredMessage": "Wystąpił błąd. Spróbuj ponownie później.",
+  "@errorOccurredMessage": {
+    "description": "Message shown when an error occurs."
   }
 }
