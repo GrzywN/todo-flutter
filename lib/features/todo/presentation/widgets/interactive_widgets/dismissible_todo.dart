@@ -28,6 +28,7 @@ class DismissibleTodo extends StatelessWidget {
         } else {
           _onEdit(context, todo);
         }
+        return null;
       },
       child: CheckboxListTile(
         value: todo.isCompleted,
