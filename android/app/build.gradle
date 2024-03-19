@@ -54,7 +54,7 @@ android {
         applicationId "me.karolbinkowski.todo"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 26
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -74,6 +74,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 flutter {
@@ -82,4 +85,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.glance:glance-appwidget:1.0.0'
 }

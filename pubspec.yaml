@@ -41,6 +41,7 @@ dependencies:
 
   # SQLite Database
   sqflite: 2.3.0
+  home_widget: ^0.4.1
 
 dev_dependencies:
   flutter_test:
