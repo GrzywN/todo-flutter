@@ -32,11 +32,39 @@ class CompletedTodoModel extends TodoModel {
     int? id,
     String? title,
     String? description,
-  }) : super(id: id, title: title, description: description, isCompleted: true);
+  }) : super(
+          id: id,
+          title: title,
+          description: description,
+          isCompleted: true,
+        );
 
   @override
   factory CompletedTodoModel.fromEntity(TodoEntity entity) {
     return CompletedTodoModel(
+      id: entity.id,
+      title: entity.title,
+      description: entity.description,
+    );
+  }
+}
+
+class UncompletedTodoModel extends TodoModel {
+  @override
+  const UncompletedTodoModel({
+    int? id,
+    String? title,
+    String? description,
+  }) : super(
+          id: id,
+          title: title,
+          description: description,
+          isCompleted: false,
+        );
+
+  @override
+  factory UncompletedTodoModel.fromEntity(TodoEntity entity) {
+    return UncompletedTodoModel(
       id: entity.id,
       title: entity.title,
       description: entity.description,

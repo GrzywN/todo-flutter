@@ -30,6 +30,12 @@ class TodoRepositoryImpl implements TodoRepository {
 
   @override
   Future<void> completeTodo(TodoEntity todo) {
-    return _appDatabase.todoDAO.updateTodo(CompletedTodoModel.fromEntity(todo));
+    final dao = _appDatabase.todoDAO;
+
+    if (todo.isCompleted == true) {
+      return dao.updateTodo(UncompletedTodoModel.fromEntity(todo));
+    }
+
+    return dao.updateTodo(CompletedTodoModel.fromEntity(todo));
   }
 }
