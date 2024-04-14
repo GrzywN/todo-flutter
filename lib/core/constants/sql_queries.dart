@@ -1,1 +1,1 @@
-const getAllTodosQuery = "SELECT * FROM Todos";
+const getAllTodosQuery = "SELECT * FROM Todos ORDER BY id DESC";

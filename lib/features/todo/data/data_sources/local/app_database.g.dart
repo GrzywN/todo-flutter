@@ -154,7 +154,7 @@ class _$TodoDao extends TodoDao {
 
   @override
   Future<List<TodoModel>> getAllTodos() async {
-    return _queryAdapter.queryList('SELECT * FROM Todos',
+    return _queryAdapter.queryList('SELECT * FROM Todos ORDER BY id DESC',
         mapper: (Map<String, Object?> row) => TodoModel(
             id: row['id'] as int?,
             title: row['title'] as String?,
