@@ -13,7 +13,7 @@ dependencies:
   # i18n
   flutter_localizations:
     sdk: flutter
-  intl: 0.18.1
+  intl: ^0.19.0
 
   # Icons
   cupertino_icons: 1.0.5
